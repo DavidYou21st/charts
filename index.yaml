@@ -1,0 +1,31 @@
+apiVersion: v1
+entries:
+  blog:
+  - annotations:
+      category: ApplicationServer
+      images: |
+        - name: blog-laravel
+          image: docker.io/tianya2022/laravel-blog:latest
+        - name: mysql
+          image: docker.io/mysql:latest
+      licenses: MIT
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-19T18:37:58.255977+08:00"
+    description: A Blog Helm chart for Kubernetes
+    digest: 6e242f40cba23b2aacbdd1b17afd4c4fe4641cc27f7517ffbea570d27340df41
+    home: https://github.com/DavidYou21st/blog-chart
+    keywords:
+    - laravel
+    - blog
+    maintainers:
+    - email: davidyou21st@gmail.com
+      name: davidyou
+    name: blog
+    sources:
+    - https://github.com/DavidYou21st/blog-chart
+    type: application
+    urls:
+    - https://davidyou21st.github.io/charts/blog-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-03-19T18:37:58.2539763+08:00"
