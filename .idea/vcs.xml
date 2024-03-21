@@ -2,12 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/blog-app" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/davidyoucharts" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/deploy-basic-phhp-app-k8s-helm" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/helm-charts" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/laravel_y" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/lavarel-app" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/yg_charts" vcs="Git" />
   </component>
 </project>

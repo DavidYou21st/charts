@@ -1,4 +1,4 @@
-## charts
+  ## charts
 
 # David You. Helm Repo
 
@@ -13,9 +13,11 @@ Once Helm is set up properly, add the repo as follows:
 ```
 helm repo add davidyou https://davidyou21st.github.io/charts/
 helm repo update
-helm pull davidyou/xxx
+helm pull davidyou/xxx --untar
 ```
 
 You can then run helm search repo davidyou to see the charts.
 
-installing blog
+for example:
+
+helm pull davidyou/blog --untar
