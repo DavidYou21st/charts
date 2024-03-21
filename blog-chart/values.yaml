@@ -11,7 +11,6 @@ global:
 nameOverride: ""
 replicaCount: 1
 image:
-  registry: hub.docker.com
   repository: tianya2022/laravel-blog
   tag: latest
   pullPolicy: IfNotPresent
@@ -26,11 +25,12 @@ blogService:
   type: ClusterIP
   blogPort: 9000
   indexFile: index.php
+  path: /var/www/blog
 persistence:
-  enabled: false
-  storageClass: hostpath
+  enabled: true
+  storageClass: nfs-storage
   accessMode: ReadWriteMany
-  size: 3Gi
+  size: 1Gi
   existingClaim: ""
 externalDatabase:
   existingSecret: ""
@@ -58,6 +58,8 @@ ingress:
   enabled: true
   hosts:
     - "blog.test.com"
+  pathType: ImplementationSpecific
+  path: /
   annotations:
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
@@ -74,3 +76,10 @@ resources:
     cpu: 80m
     memory: 128Mi
 extraEnv:
+nfs:
+  server: "192.168.100.21"    #这里改成刚刚nfs-server服务器的ip
+  path: "/home/vagrant/workplace/nfs"            #这里改成nfs-server服务器的路径
+  mountOptions:
+  volumeName: nfs-dir-external-provisioner
+  # Reclaim policy for the main nfs volume
+  reclaimPolicy: Retain

@@ -21,9 +21,12 @@ spec:
       http:
         paths:
           - path: /
+            pathType: "ImplementationSpecific"
             backend:
-              serviceName: {{ $serviceName }}-nginx
-              servicePort: {{ $servicePort }}
+              service:
+                name: {{ $serviceName }}-nginx
+                port:
+                  number: {{ $servicePort }}
     {{- end -}}
   {{- if .Values.ingress.tls }}
   tls:

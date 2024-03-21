@@ -1,18 +1,15 @@
 {{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "fullname" . }}-pvc
-  labels:
-    app: {{ template "fullname" . }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-    release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
+  name: app-pvc
+  annotations:
+    volume.beta.kubernetes.io/storage-class: {{ .Values.persistence.storageClass | quote }}
 spec:
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
       storage: {{ .Values.persistence.size | quote }}
-  {{ include "storageClass" . }}
 {{- end -}}
