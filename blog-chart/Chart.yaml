@@ -1,5 +1,0 @@
-apiVersion: v1
-name: blog
-version: 0.1.1
-appVersion: 7.4.5
-description: Helm chart for blog applications
